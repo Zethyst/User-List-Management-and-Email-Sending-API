@@ -1,11 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+require("dotenv").config();
 
 const app = express();
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://zethyst:akshat2002@cluster0.wdelwkx.mongodb.net/userlist');
+mongoose.connect(process.env.MONGO_URI);
 
 const listRoutes = require('./routes/listRoutes');
 const userRoutes = require('./routes/userRoutes');
